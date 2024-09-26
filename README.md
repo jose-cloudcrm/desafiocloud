@@ -1,23 +1,31 @@
-﻿# desafiocloud
- 
-Banco de Dados:
+﻿# Let's improve the given content and save it to a new file.
 
-APP_NAME=DesafioCloud
-APP_ENV=local
-APP_DEBUG=true
-APP_TIMEZONE=America/Sao_Paulo
-APP_URL=http://127.0.0.1:8000
+improved_content = """
+# DesafioCloud Setup Guide
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=desafiocloud
-DB_USERNAME=root
-DB_PASSWORD=
+## Database Configuration:
 
+- **App Name**: DesafioCloud
+- **Environment**: Local
+- **Debug Mode**: Enabled (true)
+- **Timezone**: America/Sao_Paulo
+- **Base URL**: http://127.0.0.1:8000
 
-Iniciar Front End:
-> npm run serve
+### MySQL Database Settings:
+- **Connection Type**: MySQL
+- **Host**: 127.0.0.1
+- **Port**: 3306
+- **Database Name**: desafiocloud
+- **Username**: root
+- **Password**: (Leave blank or set your preferred password)
 
-Iniciar Back End:
-> php artisan serve
+## Start no Frontend:
+```bash
+npm run serve
+```
+
+## Start no Back End
+```bash
+php artisan serve
+```
+
