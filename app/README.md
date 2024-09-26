@@ -1,30 +1,30 @@
 
-## Pre-requisites
+## Pré-requisitos
 
-- Basic programming logic;
-- Knowledge of databases;
-- Understanding of REST, HTTP, and APIs;
-- Familiarity with Git version control;
+- Lógica de programação básica;
+- Conhecimentos sobre banco de dados;
+- Entendimento sobre REST, HTTP e APIs;
+- Familiaridade com o controle de versão Git;
 
-## Running the Project - Front End
+## Executando o Projeto - Front End
 
-1. On the homepage, you can immediately view all registered users.
-2. To create a new user, navigate to the user creation form, which includes fields for name, email, password, and date of birth.
-3. User registration is only possible if the user is over 18 years old, the email is unique, and the password contains more than 6 characters.
-4. After creating a user, you can edit any information or delete the user if no transactions are linked to them.
-5. After registering users, proceed to product registration.
-6. In the product registration form, you can fill in details like product name, quantity, and price.
-7. Next, head to the transaction registration.
-8. In the transaction area, you can select multiple products, an existing user, and a payment method.
-9. You also have the option to mark the transaction as "blocked."
-10. The transaction listing page displays all transactions, including user and product details, payment method, and automatically calculated total value.
-11. For better data visibility, you can click the "View" button to check detailed user and product information.
-12. You can also delete transactions if needed.
-13. Transactions can be filtered by payment type.
-14. By clicking on the "Totals" button, you can see the total credit and debit amounts, as well as the combined sum.
-15. The "CSV" button allows you to download a report of the created transactions. You can choose to export all transactions, monthly reports, or reports for a specific year and date range.
+1. Na página inicial, você pode visualizar imediatamente todos os usuários cadastrados.
+2. Para criar um novo usuário, vá para o formulário de criação de usuário, que inclui campos para nome, e-mail, senha e data de nascimento.
+3. O cadastro do usuário só será possível se ele tiver mais de 18 anos, o e-mail for único e a senha contiver mais de 6 caracteres.
+4. Após criar um usuário, você pode editar qualquer informação ou excluir o usuário, se não houver transações vinculadas a ele.
+5. Após cadastrar os usuários, prossiga para o cadastro de produtos.
+6. No formulário de cadastro de produto, você pode preencher detalhes como nome do produto, quantidade e preço.
+7. Em seguida, vá para o cadastro de movimentações.
+8. Na área de movimentações, você pode selecionar vários produtos, um usuário existente e um método de pagamento.
+9. Você também tem a opção de marcar a transação como "bloqueada".
+10. A página de listagem de movimentações exibe todas as transações, incluindo detalhes de usuários e produtos, método de pagamento e valor total calculado automaticamente.
+11. Para melhor visibilidade dos dados, você pode clicar no botão "Visualizar" para verificar informações detalhadas do usuário e produtos.
+12. Também é possível excluir transações, se necessário.
+13. As transações podem ser filtradas por tipo de pagamento.
+14. Ao clicar no botão "Totais", você pode ver o total de créditos, débitos e a soma dos dois.
+15. O botão "CSV" permite baixar um relatório das transações criadas. Você pode escolher exportar todas as transações, relatórios mensais ou relatórios de um ano e intervalo de datas específicos.
 
-### Command to start the project:
+### Comando para iniciar o projeto:
 ```bash
 npm run dev
 ```
