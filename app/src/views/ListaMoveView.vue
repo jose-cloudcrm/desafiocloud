@@ -34,7 +34,7 @@
                 <td>
                     <ul>
                         <li v-for="produto in movement.produtos" :key="produto.id">
-                            {{ produto.name }} - R${{ produto.valor_total }}
+                            {{ produto.name }} 
                         </li>
                     </ul>
                 </td>
