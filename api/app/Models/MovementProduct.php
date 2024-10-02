@@ -13,6 +13,7 @@ class MovementProduct extends Model
         'movement_id',
         'product_id',
         'valor',
+        'quantidade_pd',
     ];
 
     public function movement()

@@ -73,7 +73,7 @@ class MovementsController extends Controller
 
             $produtos = Produtos::whereIn('id', $request->produtos_id)->get();
             if ($produtos->isEmpty() || $produtos->contains(function($produto) {
-                return $produto->valor === null;
+                return $produto->valor_total === null;
             })) {
                 return response()->json([
                     'status' => false,
@@ -81,8 +81,8 @@ class MovementsController extends Controller
                 ], 400);
             }
 
-            $valorTotal = $produtos->sum('valor');
-
+            $valorTotal = $produtos->sum('valor_total');
+            dd($valorTotal);
             $movimentacao = Movements::create([
                 'usuario_id' => $request->usuario_id,
                 'tipoDePagamento' => $request->tipoDePagamento,

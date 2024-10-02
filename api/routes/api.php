@@ -2,6 +2,7 @@
 
 use App\Enums\TipoDePagamento;
 use App\Http\Controllers\Api\MovementsController;
+use App\Http\Controllers\Api\MovementProductController;
 use App\Http\Controllers\Api\ProdutosController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -19,9 +20,9 @@ Route::delete('/users/{user}', [UserController::class,'destroy']); //http://127.
 Route::get('/teste',function(){
     dd(array_column(TipoDePagamento::cases(), 'name'));
 });
+Route::apiResource('/produtos',ProdutosController::class);
 
-Route::post('/produtos', [ProdutosController::class,'store']); //http://127.0.0.1:8000/api/produtos
-Route::get('/produtos', [ProdutosController::class, 'index']); //http://127.0.0.1:8000/api/produtos
+
 Route::apiResource('movements',MovementsController::class);
 // Route::get('/movements', [MovementsController::class, 'index']); //http://127.0.0.1:8000/api/movements
 Route::get('/movement/debits', [MovementsController::class, 'somaDebitos']);//http://127.0.0.1:8000/api/movement/debits
@@ -33,5 +34,6 @@ Route::get('/movement/totalmetodos', [MovementsController::class, 'somaDosMetodo
 // Route::delete('/movements/{id}', [MovementsController::class,'destroy']); //http://127.0.0.1:8000/api/movements/1
 Route::get('/movements/search', [MovementsController::class, 'pesquisapagamento']); //http://127.0.0.1:8000/api/movements/search
 Route::get('/movement/export-csv', [MovementsController::class, 'exportMovementsCsv']);//http://127.0.0.1:8000/api/movement/export-csv
+Route::post('/movementproducts', [MovementProductController::class, 'store']);
 
 

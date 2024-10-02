@@ -33,7 +33,8 @@
                                 <th scope="col">Id</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Quantidade</th>
-                                <th scope="col">Valor</th>
+                                <th scope="col">Valor Unitario</th>
+                                <th scope="col"> Valor Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,7 +42,8 @@
                                 <th scope="row">{{ produto.id }}</th>
                                 <td>{{ produto.name }}</td>
                                 <td>{{ produto.quantidade }}</td>
-                                <td>{{ produto.valor }}</td>
+                                <td>{{ produto.valor_unitario }}</td>
+                                <td>{{ produto.valor_total }}</td>
                             </tr>
                         </tbody>
                     </table>

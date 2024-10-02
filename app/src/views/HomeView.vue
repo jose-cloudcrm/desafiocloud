@@ -2,6 +2,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button type="button" class="btn btn-success btncriaruser me-auto" data-bs-toggle="modal" data-bs-target="#createUserModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"/>
+                    </svg>
+                </button>
                 <form class="d-flex" @submit.prevent="PesquisarId">
                     <input class="form-control me-2" type="search" placeholder="Buscar por ID" v-model="buscarid">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -43,16 +49,19 @@
     </table>
 
     <EditUser :selectedUser="selectedUser" />
+    <UserCreateModal :createUser="createUser" />
 </template>
 
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
 import EditUser from './modals/EditUser.vue';
+import UserCreateModal from './modals/UserCreateModal.vue';
 
 const users = ref([]);
 const buscarid = ref('');
 const selectedUser = ref(null);
+const createUser = ref(null);
 
 axios.get('users').then((response) => {
     users.value = response.data;
@@ -100,6 +109,7 @@ const editUser = (user) => {
 };
 </script>
 
+
 <style lang="css" scoped>
 nav{
     min-width: 700px;
@@ -107,10 +117,7 @@ nav{
     margin-left: 300px;
     padding-left: 700px;
 }
-input{
-    min-width: 200px;
-    margin-left: -120px;
-}
+
 .tabela{
     width: 100%;
     max-width: 900px;
@@ -120,5 +127,9 @@ input{
 
 button {
     width: 40%;
+}
+
+.btncriaruser{
+    margin-left: -700px;
 }
 </style>

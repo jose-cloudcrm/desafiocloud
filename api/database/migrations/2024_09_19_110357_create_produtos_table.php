@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('quantidade');
-            $table->decimal('valor', 10, 2);
+            $table->decimal('valor_unitario', 8, 2);
+            $table->decimal('valor_total', 8, 2);
             $table->timestamps();
         });
+
     }
 
     /**

@@ -12,7 +12,8 @@ class Produtos extends Model
     protected $fillable = [
         'name',
         'quantidade',
-        'valor',
+        'valor_unitario',
+        'valor_total'
     ];
 
     public function movements()

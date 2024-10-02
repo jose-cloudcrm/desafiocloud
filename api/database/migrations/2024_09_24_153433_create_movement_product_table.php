@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('movements_id')->references('id')->on('movements')->onDelete('cascade');
             $table->foreign('produtos_id')->references('id')->on('produtos')->onDelete('cascade');
+            $table->integer('quantidade');
         });
     }
 

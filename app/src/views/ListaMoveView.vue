@@ -2,6 +2,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button type="button" class="btn btn-success btncriaruser me-auto" data-bs-toggle="modal" data-bs-target="#createMoveModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-text-sidebar" viewBox="0 0 16 16">
+                        <path d="M3.5 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM3 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"/>
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm12-1v14h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-1 0H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9z"/>
+                    </svg>
+                </button>
                 <form class="d-flex" @submit.prevent="Pesquisartp">
                     <input class="form-control me-2" type="search" placeholder="Buscar por Pagamento" v-model="buscartp">
                     <button class="btn btn-outline-success buttonform" type="submit">Buscar</button>
@@ -28,7 +34,7 @@
                 <td>
                     <ul>
                         <li v-for="produto in movement.produtos" :key="produto.id">
-                            {{ produto.name }} - R${{ produto.valor }}
+                            {{ produto.name }} - R${{ produto.valor_total }}
                         </li>
                     </ul>
                 </td>
@@ -73,6 +79,7 @@
     <VisuMove :movement="selectedMove" />
     <TotaisView :movement="selectedTotais" />
     <exportcsv :movement="selectedcsv" />
+    <CreateMoveModal :movement="createMove" />
 
 
 
@@ -84,6 +91,7 @@ import { ref } from 'vue';
 import VisuMove from './modals/visuMove.vue';
 import TotaisView from './modals/TotaisView.vue';
 import exportcsv from './modals/exportcsv.vue';
+import CreateMoveModal from './modals/CreateMoveModal.vue';
 
 const movements = ref({
     data: [],
@@ -93,6 +101,7 @@ const movements = ref({
 const buscartp = ref('');
 const selectedMove = ref(null);
 const selectedTotais = ref(null);
+const createMove = ref(null);
 
 
 const fetchMovements = (url = 'movements') => {
@@ -144,23 +153,15 @@ nav {
     margin-left: 300px;
     padding-left: 700px;
 }
-.filtro{
-    margin-left: 200px;
-    padding-left: 400px;
-    max-width: ;
-}
 select{
     max-width: 250px;
 }
 input {
     min-width: 200px;
-    margin-left: -120px;
+
 }
 .buttonform{
     width: 100%;
-}
-.btnfiltro{
-    max-width: 150px;
 }
 .tabela {
     width: 100%;
@@ -175,12 +176,14 @@ button {
 .pagination {
     margin-top: 20px;
 }
-
 .page-link {
     cursor: pointer;
 }
 .totais{
     max-width: 500px;
     padding-left: 295px;
+}
+.btncriaruser{
+    margin-left: -700px;
 }
 </style>

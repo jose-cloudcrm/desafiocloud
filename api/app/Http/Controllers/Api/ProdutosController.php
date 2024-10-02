@@ -27,24 +27,26 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+
+
             $request->validate([
                 'name' => 'required',
-                'quantidade' => 'required',
-                'valor' => 'required'
+                'quantidade' => 'required|integer',
+                'valor_unitario' => 'required|numeric'
             ]);
+
 
             $produto = Produtos::create([
                 'name' => $request->name,
                 'quantidade' => $request->quantidade,
-                'valor' => $request->valor,
+                'valor_unitario' => $request->valor_unitario,
+                'valor_total' => $request->quantidade * $request->valor_unitario
             ]);
 
             return response()->json($produto, 201);
-        } catch (Exception $e) {
-            return response()->json(['status' => false, 'message' => 'Erro ao criar produto.'], 404);
-        }
+
     }
+
 
     /**
      * Display the specified resource.
@@ -78,14 +80,15 @@ class ProdutosController extends Controller
 
             $request->validate([
                 'name' => 'required',
-                'quantidade' => 'required',
-                'valor' => 'required'
+                'quantidade' => 'required|integer',
+                'valor_unitario' => 'required|numeric'
             ]);
 
             $produto->update([
                 'name' => $request->name,
                 'quantidade' => $request->quantidade,
-                'valor' => $request->valor,
+                'valor_unitario' => $request->valor_unitario,
+                'valor_total' => $request->quantidade * $request->valor_unitario
             ]);
 
             return response()->json($produto, 200);
@@ -93,6 +96,7 @@ class ProdutosController extends Controller
             return response()->json(['status' => false, 'message' => 'Erro ao atualizar produto.'], 404);
         }
     }
+
 
     /**
      * Remove the specified resource from storage.
