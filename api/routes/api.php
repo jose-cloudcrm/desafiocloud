@@ -7,8 +7,10 @@ use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+//OK
 
 
+//Poderia ter usado apiResource aqui tambem definindo Route::apiResource('users')
 Route::get('/users', [UserController::class, 'index']); //http://127.0.0.1:8000/api/users
 Route::get('/users/checkemail', [UserController::class, 'check']);//http://127.0.0.1:8000/api/users/check-email
 Route::get('/users/{user}', [UserController::class, 'show']); //http://127.0.0.1:8000/api/users/1
