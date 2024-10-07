@@ -27,6 +27,7 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
+        // Poderiamos criar um arquivo de Request personalizado para evitar definir essa logica aqui!, StoreProdutoRequest
         try {
             $request->validate([
                 'name' => 'required',
@@ -49,6 +50,7 @@ class ProdutosController extends Controller
     /**
      * Display the specified resource.
      */
+    //Poderiamos receber Produto $produto para evitar fazer a consulta find;
     public function show(string $id)
     {
         try {
@@ -67,6 +69,7 @@ class ProdutosController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    //Poderiamos receber Produto $produto para evitar fazer a consulta find;
     public function update(Request $request, string $id)
     {
         try {
@@ -97,6 +100,8 @@ class ProdutosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
+    //Poderiamos receber Produto $produto para evitar fazer a consulta find;
     public function destroy(string $id)
     {
         try {
