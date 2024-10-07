@@ -13,6 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // Funcional mas poderiamos criar um factory
         if(!User::where('email', 'jjosenetto2020@gmail.com')->first()){
             User::create([
                 'name' => 'Neto',

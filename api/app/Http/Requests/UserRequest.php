@@ -43,7 +43,7 @@ class UserRequest extends FormRequest
 
 
 
-
+// Muitos espaçamentos desnecessarios
 
     /**
      * Obtenha as regras de validação que se aplicam à solicitação.

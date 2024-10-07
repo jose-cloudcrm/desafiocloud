@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+// Por convenção devemos criar as models com nome no singular por exemplo class Movement extends Models;
 class Movements extends Model
 {
     use HasFactory;
