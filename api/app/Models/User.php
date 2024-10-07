@@ -40,6 +40,7 @@ class User extends Authenticatable
      */
     protected function casts(): array
     {
+        // Aqui voce poderia adicionar birthday no casts
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
@@ -50,5 +51,5 @@ class User extends Authenticatable
         {
             return $this->hasMany(Movements::class, 'usuario_id');
         }
-
+ 
 }
