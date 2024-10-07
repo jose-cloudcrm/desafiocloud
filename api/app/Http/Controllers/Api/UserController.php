@@ -11,12 +11,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Exists;
-
 class UserController extends Controller
 {
     public function index() : JsonResponse
     {
-
+        //Podemos identar o codigo melhor
 
         $users = User::orderBy('id', 'DESC')->get();
 
@@ -45,11 +44,10 @@ class UserController extends Controller
     public function store(UserRequest $request){
         DB::beginTransaction();
 
-
-
         $data = $request->validated();
 
         //Aqui faço a conversão para padrão americano
+        //Voce poderia definir esse atributo birthday na model User, esse parse seria feito automaticamente na hora de puxar esse valor;
         $data['birthday'] = Carbon::parse($request->birthday)->format('Y-m-d');
         try{
             $user = User::create($data);
