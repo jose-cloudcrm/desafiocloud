@@ -18,9 +18,11 @@ class MovementsController extends Controller
     /**
      * Display a listing of the resource.
      */
+    //Por que receber $request aqui? pode remover essa variavel náo esta sendo utilizada
     public function index(Request $request)
     {
         try {
+            //Bom aqui era possivel utilizar ->orderByDesc sintaxe mais simples
             $movimentacoes = Movements::orderBy('id', 'DESC')->with(['user', 'produtos'])->paginate(5);
             return response()->json($movimentacoes, 200);
         } catch (Exception $e) {
@@ -34,6 +36,8 @@ class MovementsController extends Controller
     public function pesquisapagamento(Request $request)
     {
         try {
+            //Poderia utilizar $request->validated() aqui evitaria o uso do if em baixo tambem
+            //Devemos evitar pegar valores da requisição utilizando input
             $tipoPagamento = $request->input('tipo_pagamento');
 
             if (!$tipoPagamento) {
@@ -63,7 +67,10 @@ class MovementsController extends Controller
      */
     public function store(Request $request)
     {
+        
         try {
+            //Bom uso do validate aqui porem, poderiamos criar um arquivo de request criando uma StoreMovementRequest 
+            //separando essa validação em um arquivo de request.
             $request->validate([
                 'produtos_id' => 'required|array',
                 'usuario_id' => 'required|exists:users,id',
@@ -131,6 +138,7 @@ class MovementsController extends Controller
     public function exportMovementsCsv(Request $request)
     {
         try {
+            //Bom uso do query
             $query = Movements::query();
 
             if ($request->filter === 'last_30_days') {
@@ -176,6 +184,8 @@ class MovementsController extends Controller
     public function show(Request $request)
     {
         try {
+            //Poderia utilizar $request->validated() aqui evitaria o uso do if em baixo tambem
+            //Devemos evitar pegar valores da requisição utilizando input
             $tipoDePagamento = $request->input('tipoDePagamento');
 
             if (!$tipoDePagamento) {
@@ -203,6 +213,7 @@ class MovementsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    //Voce pode receber um objeto Movement $movement na rota e apenas chamar $movement->delete();
     public function destroy($id)
     {
         try {
